@@ -1,0 +1,67 @@
+public class Vowels
+{
+    public static final char[] CONSONANTS =
+    {
+        'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z'
+    };
+
+    public static final char SPACE = ' ';
+
+    public static char[] getConsonants()
+    {
+        return CONSONANTS;
+    }
+
+    public static boolean isConsonant(char c)
+    {
+        boolean isConsonant = false;
+        for (int i = 0; i < getConsonants().length; i++)
+        {
+            if (getConsonants()[i] == c)
+            {
+                isConsonant = true;
+                break;
+            }
+        }
+        return isConsonant;
+    }
+
+    public static boolean isSpace(char c)
+    {
+        return SPACE == c;
+    }
+
+    public static void main(String[] args)
+    {
+        int spaces     = 0;
+        int consonants = 0;
+        int vowelcount = 0;
+
+        Console console = System.console();
+        console.format("Enter a String:");
+
+        String text = console.readLine();;
+
+        for (int index = 0; index < text.length(); index++)
+        {
+            char letter = text.charAt(index);
+            if (!isSpace(letter))
+            {
+                if (isConsonant(letter))
+                {
+                    consonants++;
+                }
+                else
+                {
+                    vowelcount++;
+                }
+            }
+            else
+            {
+                spaces++;
+            }
+        }
+
+        System.out.println("Vowels:" + vowelcount + "\nConsonants :" + consonants + "\nSpaces : " + spaces);
+    }
+}
