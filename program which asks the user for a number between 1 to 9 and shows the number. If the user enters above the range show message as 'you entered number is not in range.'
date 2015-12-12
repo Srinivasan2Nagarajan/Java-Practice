@@ -1,0 +1,43 @@
+import java.util.*;
+
+
+public class GuessingGame {
+
+
+    public static void main(String[] args) {
+        introduction();
+        Scanner console = new Scanner(System.in);
+        Random rand = new Random();
+
+        int guess = 0;
+        int minimum = 1;
+        int maximum = 100;
+        int secretNumber = rand.nextInt(100) + 1;
+
+        System.out.print("Enter a number between " + minimum + " and " + maximum + " (inclusive): ");
+        while (guess != secretNumber) {
+            if (console.hasNextInt()) {
+                guess = console.nextInt();
+                if (guess > secretNumber) {
+                    maximum = guess - 1;
+                    System.out.print("Enter a number between " + minimum + " and " + maximum + " (inclusive): ");
+                }
+                if (guess < secretNumber) {
+                    minimum =guess + 1;
+                    System.out.print("Enter a number between " + minimum + " and " + maximum + " (inclusive): ");
+                }
+                if (guess == secretNumber) {
+                    System.out.println("You win!");
+                }
+            } else {
+                console.next();
+                System.out.print("Enter a number between " + minimum + " and " + maximum + " (inclusive): ");
+            }
+        }
+    }
+
+
+    public static void introduction() {
+        System.out.println("Guess the secret number!");
+    }
+}
