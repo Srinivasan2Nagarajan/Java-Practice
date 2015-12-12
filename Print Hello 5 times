@@ -1,0 +1,15 @@
+public class Hello
+{
+public static int instance = 0;
+Hello()
+{
+instance ++;
+System.out.println("Hello!");
+if(instance == 5) System.exit(1);
+new Hello();
+}
+public static void main(String args[])
+{
+new Hello(); 
+}
+}
