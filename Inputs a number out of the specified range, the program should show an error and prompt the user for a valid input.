@@ -1,0 +1,9 @@
+System.out.println("What is your age?\n");
+    age = userInput.nextInt();
+
+    if((age > 120) || (age < 1)) {//error message
+        System.out.println("ERROR Please enter a valid age");
+        System.out.println("");
+        System.out.println("What is your age?\n");
+        age = userInput.nextInt();
+    }//end if
