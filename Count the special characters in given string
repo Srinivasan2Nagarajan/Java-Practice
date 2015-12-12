@@ -1,0 +1,7 @@
+ String str = "one$two$three$four!five@six$";
+    int counter = 0;
+    for (Character c: str.toCharArray()) {
+        if (c.equals('$')) {
+            counter++;
+        }
+    }
